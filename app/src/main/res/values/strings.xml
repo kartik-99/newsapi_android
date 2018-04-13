@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Bulletin</string>
+    <string name="title_feed">Feed</string>
+    <string name="title_channels">Channels</string>
+    <string name="title_bookmarks">Bookmarks</string>
+    <string name="title_search">Search</string>
+</resources>
+
