@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/navigation_feed"
+        title="@string/title_feed"
+        icon="@drawable/ic_feed"/>
+
+    <tab
+        id="@+id/navigation_channels"
+        title="@string/title_channels"
+        icon="@drawable/ic_channels"/>
+
+    <tab
+        id="@+id/navigation_bookmarks"
+        title="@string/title_bookmarks"
+        icon="@drawable/ic_heart_selected"/>
+
+    <tab
+        id="@+id/navigation_search"
+        title="@string/title_search"
+        icon="@drawable/ic_search"/>
+</tabs>
