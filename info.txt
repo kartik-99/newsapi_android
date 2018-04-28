@@ -1,0 +1,35 @@
+Sources
+	Request:
+		category : business entertainment general health science sports technology
+		language : de en es fr he it nl no pt ru se ud zh //not now
+		country : ar at au be bg br ca ch cn co cu cz de eg fr gb gr hk hu id ie il in it jp kr lt lv ma mx my ng nl no nz ph pl pt ro rs ru sa se sg si sk th tr tw ua us ve za
+		apiKey
+
+	Response
+{
+
+    "status": "ok",
+    "sources": [
+        {
+            "id": "abc-news",
+            "name": "ABC News",
+            "description": "Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com.",
+            "url": "http://abcnews.go.com",
+            "category": "general",
+            "language": "en",
+            "country": "us"
+        },
+	{
+
+	    "id": "ynet",
+	    "name": "Ynet",
+	    "description": "ynet דף הבית: אתר החדשות המוביל בישראל מבית ידיעות אחרונות. סיקור מלא של חדשות מישראל והעולם, ספורט, כלכלה, תרבות, אוכל, מדע וטבע, כל מה שקורה וכל מה שמעניין ב ynet.",
+	    "url": "http://www.ynet.co.il",
+	    "category": "general",
+	    "language": "he",
+	    "country": "is"
+
+	}
+]
+}
+	

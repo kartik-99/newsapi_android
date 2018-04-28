@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="sourcecard_title" type="id"/>
+    <item name="sourcecard_description" type="id"/>
+    <item name="sourcecard_category" type="id"/>
+    <item name="sourcecard_lang" type="id"/>
+    <item name="category_card" type="id"/>
+    <item name="category_text" type="id"/>
+    <item name="source_categorySpinner" type="id"/>
+    <item name="recyclerview_all_sources" type="id"/>
+</resources>

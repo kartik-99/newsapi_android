@@ -4,8 +4,11 @@
     <string name="title_channels">Channels</string>
     <string name="title_bookmarks">Bookmarks</string>
     <string name="title_search">Search</string>
+    <string name="categry_spinner_title">Category : </string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="apiKey">bdba5de1b490495796a1595f77ed3f37</string>
+    <string name="hello_blank_fragment">Hello</string>
+
 </resources>
 
