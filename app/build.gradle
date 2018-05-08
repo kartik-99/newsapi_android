@@ -52,7 +52,6 @@ dependencies {
     //rx-java
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
 
-<<<<<<< HEAD
 
     //room
     implementation "android.arch.persistence.room:runtime:1.0.0"
@@ -61,9 +60,6 @@ dependencies {
 
     // Testing support
     androidTestImplementation "android.arch.core:core-testing:1.0.0"
-
-=======
->>>>>>> 66286b72c808cc921e175b2fdd8331dfc975d769
     //the usual
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'

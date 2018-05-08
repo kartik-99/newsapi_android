@@ -9,7 +9,6 @@
 
     <string name="apiKey">bdba5de1b490495796a1595f77ed3f37</string>
     <string name="hello_blank_fragment">Hello</string>
-<<<<<<< HEAD
 
     <string-array name="categories">
         <item>All categories</item>
@@ -22,8 +21,6 @@
         <item>technology</item>
 
     </string-array>
-=======
->>>>>>> 66286b72c808cc921e175b2fdd8331dfc975d769
 
 </resources>
 

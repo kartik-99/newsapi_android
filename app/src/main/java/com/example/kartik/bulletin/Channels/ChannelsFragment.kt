@@ -30,7 +30,7 @@ class ChannelsFragment : Fragment() {
     var recyclerView : RecyclerView? = null
 
     private var newsApiService = NewsApiService.create()
-    private var db = AppDatabase.getInstance(ctx)
+    //private var db = AppDatabase.getInstance(ctx)
     var sourceData : Model.SourceData?=null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -41,14 +41,8 @@ class ChannelsFragment : Fragment() {
         swipeLayout.onRefresh {
             Handler().postDelayed(Runnable { swipeLayout.isRefreshing = false }, 5000)
         }
-
-
-
-
-        getSourcesFromDb()
-
-
-
+        //filling rv with api data
+        getSourcesFromApi()
         return view
     }
 
