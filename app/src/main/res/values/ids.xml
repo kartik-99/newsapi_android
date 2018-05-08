@@ -2,10 +2,18 @@
 <resources>
     <item name="sourcecard_title" type="id"/>
     <item name="sourcecard_description" type="id"/>
+<<<<<<< HEAD
+    <item name="sourcecard_category_imageview" type="id"/>
+=======
     <item name="sourcecard_category" type="id"/>
+>>>>>>> 66286b72c808cc921e175b2fdd8331dfc975d769
     <item name="sourcecard_lang" type="id"/>
     <item name="category_card" type="id"/>
     <item name="category_text" type="id"/>
     <item name="source_categorySpinner" type="id"/>
     <item name="recyclerview_all_sources" type="id"/>
+<<<<<<< HEAD
+    <item name="swipe_layout" type="id"/>
+=======
+>>>>>>> 66286b72c808cc921e175b2fdd8331dfc975d769
 </resources>

@@ -1,16 +1,11 @@
 package com.example.kartik.bulletin
 
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
+import com.example.kartik.bulletin.Channels.ChannelsFragment
 import com.ncapdevi.fragnav.FragNavController
-import com.ncapdevi.fragnav.FragNavSwitchController
-import com.ncapdevi.fragnav.FragNavTransactionOptions
-import com.ncapdevi.fragnav.tabhistory.FragNavTabHistoryController
 import kotlinx.android.synthetic.main.activity_main.*
-import com.roughike.bottombar.BottomBar
 
 
 const val INDEX_FEED = FragNavController.TAB1
