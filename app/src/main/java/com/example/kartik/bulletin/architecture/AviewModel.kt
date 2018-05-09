@@ -1,7 +1,7 @@
 package com.example.kartik.bulletin.architecture
 
 import android.arch.lifecycle.ViewModel
-import com.example.kartik.bulletin.Model
+import com.example.kartik.bulletin.api.Model
 import com.example.kartik.bulletin.data.daos.SourcesDao
 import io.reactivex.Single
 

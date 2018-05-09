@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.kartik.bulletin.Model
+import com.example.kartik.bulletin.api.Model
 import com.example.kartik.bulletin.R
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.find
@@ -30,11 +30,29 @@ class SourceAdapter(val sources : ArrayList<Model.Source>) : RecyclerView.Adapte
         var description: TextView = itemView!!.find(R.id.sourcecard_description)
         var language: TextView = itemView!!.find(R.id.sourcecard_lang)
         var categoryColor: ImageView = itemView!!.find(R.id.sourcecard_category_imageview)
+
         fun updateUI(source : Model.Source){
             title.text = source.name
             description.text = source.description
             language.text = source.language
 
+            when(source.language){
+                "de"-> language.text = "German"
+                "en"-> language.text = "English"
+                "es"-> language.text = "Spanish"
+                "fr"-> language.text = "French"
+                "he"-> language.text = "Hebrew"
+                "it"-> language.text = "Italian"
+                "nl"-> language.text = "Dutch"
+                "no"-> language.text = "Norwegian"
+                "pt"-> language.text = "Portuguese"
+                "ru"-> language.text = "Russian"
+                "se"-> language.text = "Northern Sami"
+                "ud"-> language.text = "ud"
+                "zh"-> language.text = "Chinese"
+
+
+            }
 
 
         }

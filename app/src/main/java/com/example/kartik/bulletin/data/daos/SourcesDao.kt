@@ -1,14 +1,8 @@
 package com.example.kartik.bulletin.data.daos
 
 import android.arch.persistence.room.*
-import com.example.kartik.bulletin.Model
-import com.example.kartik.bulletin.NewsApiService
+import com.example.kartik.bulletin.api.Model
 import io.reactivex.Single
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 
 @Dao
 public interface SourcesDao{

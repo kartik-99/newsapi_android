@@ -1,4 +1,4 @@
-package com.example.kartik.bulletin
+package com.example.kartik.bulletin.api
 
 object Model{
 

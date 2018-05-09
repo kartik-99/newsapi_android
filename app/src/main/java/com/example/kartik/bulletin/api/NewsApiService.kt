@@ -1,7 +1,6 @@
-package com.example.kartik.bulletin
+package com.example.kartik.bulletin.api
 
 
-import com.google.gson.Gson
 import io.reactivex.Observable
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -22,7 +21,7 @@ interface NewsApiService{
 
 
     companion object {
-        fun create(): NewsApiService{
+        fun create(): NewsApiService {
             val interceptor = HttpLoggingInterceptor()
             interceptor.level = HttpLoggingInterceptor.Level.BODY
             val client = OkHttpClient.Builder().addInterceptor(interceptor).build()

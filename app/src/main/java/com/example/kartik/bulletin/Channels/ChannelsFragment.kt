@@ -1,10 +1,6 @@
 package com.example.kartik.bulletin.Channels
 
 
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
-import android.arch.persistence.room.Database
-import android.arch.persistence.room.Room
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
@@ -15,11 +11,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.kartik.bulletin.BaseFragment
-import com.example.kartik.bulletin.Model
-import com.example.kartik.bulletin.NewsApiService
+import com.example.kartik.bulletin.api.Model
+import com.example.kartik.bulletin.api.NewsApiService
 import com.example.kartik.bulletin.R
 import com.example.kartik.bulletin.architecture.AviewModel
-import com.example.kartik.bulletin.architecture.Injection
 import com.example.kartik.bulletin.architecture.ViewModelFactory
 import io.reactivex.disposables.Disposable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -51,10 +46,10 @@ class ChannelsFragment : Fragment() {
             Handler().postDelayed(Runnable { swipeLayout.isRefreshing = false }, 5000)
         }
 
+        /*db injection code
         viewModelFactory = Injection.provideViewModelFactory(ctx)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(AviewModel::class.java)
-
-        getSourcesFromDb()
+        getSourcesFromDb()*/
 
         //filling rv with api data
         getSourcesFromApi()
