@@ -1,6 +1,8 @@
 package com.example.kartik.bulletin.Channels
 
 
+import android.arch.lifecycle.ViewModelProvider
+import android.arch.lifecycle.ViewModelProviders
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.os.Bundle
@@ -16,6 +18,9 @@ import com.example.kartik.bulletin.BaseFragment
 import com.example.kartik.bulletin.Model
 import com.example.kartik.bulletin.NewsApiService
 import com.example.kartik.bulletin.R
+import com.example.kartik.bulletin.architecture.AviewModel
+import com.example.kartik.bulletin.architecture.Injection
+import com.example.kartik.bulletin.architecture.ViewModelFactory
 import io.reactivex.disposables.Disposable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -29,24 +34,38 @@ class ChannelsFragment : Fragment() {
     var dataDisposable:Disposable?= null
     var recyclerView : RecyclerView? = null
 
+    private lateinit var viewModelFactory : ViewModelFactory
+    private lateinit var viewModel : AviewModel
+
     private var newsApiService = NewsApiService.create()
-    //private var db = AppDatabase.getInstance(ctx)
+
     var sourceData : Model.SourceData?=null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View?{
         var view = ChannelsFragment_UI<Fragment>().createView(AnkoContext.create(ctx, this))
+
         recyclerView = view.rootView.find(R.id.recyclerview_all_sources)
         var swipeLayout : SwipeRefreshLayout = view.rootView.find(R.id.swipe_layout)
         swipeLayout.onRefresh {
             Handler().postDelayed(Runnable { swipeLayout.isRefreshing = false }, 5000)
         }
+
+        viewModelFactory = Injection.provideViewModelFactory(ctx)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(AviewModel::class.java)
+
+        getSourcesFromDb()
+
         //filling rv with api data
         getSourcesFromApi()
         return view
     }
 
     private fun getSourcesFromDb(){
+        dataDisposable = viewModel.getSources()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe()
     }
 
     private fun getSourcesFromApi() {
@@ -64,6 +83,11 @@ class ChannelsFragment : Fragment() {
 
     }
 
+    override fun onStop() {
+        super.onStop()
+        dataDisposable?.dispose()
+        apiDisposable?.dispose()
+    }
 
     companion object {
         fun newInstance(instance:Int): ChannelsFragment {
