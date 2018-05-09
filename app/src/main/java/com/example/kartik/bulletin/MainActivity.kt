@@ -23,12 +23,8 @@ class MainActivity : AppCompatActivity(), FragNavController.TransactionListener,
         setContentView(R.layout.activity_main)
 
         var builder = FragNavController.newBuilder(savedInstanceState, supportFragmentManager, R.id.containerView)
-
-
-
         builder.rootFragmentListener(this, 4)
         fragNavController = builder.build()
-
         bottomBar.setOnTabSelectListener({ tabId ->
             when (tabId) {
                 R.id.navigation_feed -> fragNavController?.switchTab(INDEX_FEED)
@@ -38,6 +34,9 @@ class MainActivity : AppCompatActivity(), FragNavController.TransactionListener,
             }
         })
 
+        //for manually testing, launching channels fragment first
+        fragNavController?.switchTab(INDEX_CHANNELS)
+        bottomBar.selectTabAtPosition(INDEX_CHANNELS)
 
 
     }

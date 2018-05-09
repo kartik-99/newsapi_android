@@ -51,10 +51,10 @@ class ChannelsFragment : Fragment() {
             Handler().postDelayed(Runnable { swipeLayout.isRefreshing = false }, 5000)
         }
 
+        /*db injection code
         viewModelFactory = Injection.provideViewModelFactory(ctx)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(AviewModel::class.java)
-
-        getSourcesFromDb()
+        getSourcesFromDb()*/
 
         //filling rv with api data
         getSourcesFromApi()
