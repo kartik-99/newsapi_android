@@ -5,6 +5,7 @@
 
     <item name="sourcecard_category_imageview" type="id"/>
 
+    <!--channels fragment-->
     <item name="sourcecard_category" type="id"/>
     <item name="sourcecard_lang" type="id"/>
     <item name="category_card" type="id"/>
@@ -12,4 +13,17 @@
     <item name="source_categorySpinner" type="id"/>
     <item name="recyclerview_all_sources" type="id"/>
     <item name="swipe_layout" type="id"/>
+
+    <!--search fragment-->
+    <item name="searchview" type="id"/>
+    <item name="search_results_rv" type="id"/>
+
+    <!--article card ui-->
+    <item name="article_progressbar" type="id"/>
+    <item name="article_image" type="id"/>
+    <item name="article_description" type="id"/>
+    <item name="article_author" type="id"/>
+    <item name="article_date" type="id"/>
+    <item name="article_title" type="id"/>
+
 </resources>

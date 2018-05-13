@@ -19,6 +19,10 @@ interface NewsApiService{
                    //@Query("country")country:String,
                    @Query("apiKey")apiKey:String):Observable<Model.SourceData>
 
+    @GET("everything")
+    fun getSearchResult(@Query("q")searchString: String,
+                        @Query("apiKey")apiKey:String):Observable<Model.ArticleData>
+
 
     companion object {
         fun create(): NewsApiService {

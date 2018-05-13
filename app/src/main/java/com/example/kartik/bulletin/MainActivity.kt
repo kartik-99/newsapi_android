@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import com.example.kartik.bulletin.Channels.ChannelsFragment
+import com.example.kartik.bulletin.Search.SearchFragment
 import com.ncapdevi.fragnav.FragNavController
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -34,9 +35,6 @@ class MainActivity : AppCompatActivity(), FragNavController.TransactionListener,
             }
         })
 
-        //for manually testing, launching channels fragment first
-        fragNavController?.switchTab(INDEX_CHANNELS)
-        bottomBar.selectTabAtPosition(INDEX_CHANNELS)
 
 
     }

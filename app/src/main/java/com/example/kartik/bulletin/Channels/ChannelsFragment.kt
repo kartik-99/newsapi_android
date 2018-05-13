@@ -24,7 +24,7 @@ import org.jetbrains.anko.find
 import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.onRefresh
 
-class ChannelsFragment : Fragment() {
+class   ChannelsFragment : Fragment() {
     var apiDisposable:Disposable?= null
     var dataDisposable:Disposable?= null
     var recyclerView : RecyclerView? = null
