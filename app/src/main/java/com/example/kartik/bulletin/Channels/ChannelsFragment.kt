@@ -38,7 +38,7 @@ class   ChannelsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View?{
-        var view = ChannelsFragment_UI<Fragment>().createView(AnkoContext.create(ctx, this))
+        var view = ChannelsFragmentUI<Fragment>().createView(AnkoContext.create(ctx, this))
 
         recyclerView = view.rootView.find(R.id.recyclerview_all_sources)
         var swipeLayout : SwipeRefreshLayout = view.rootView.find(R.id.swipe_layout)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
@@ -7,23 +7,55 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <FrameLayout
         android:id="@+id/containerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"/>
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/mainTabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
-    <com.roughike.bottombar.BottomBar
-        android:id="@+id/bottomBar"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/mainTabLayout"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
-        app:bb_activeTabAlpha="1"
-        app:bb_activeTabColor="#FFFFFF"
-        app:bb_inActiveTabAlpha="0.4"
-        app:bb_inActiveTabColor="#FFFFFF"
-        app:bb_tabXmlResource="@xml/navigation_bottombar" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/containerView"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-</RelativeLayout>
+        <android.support.design.widget.TabItem
+            android:id="@+id/navigation_feed"
+            android:title="@string/title_feed"
+            android:icon="@drawable/ic_feed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/navigation_channels"
+            android:title="@string/title_channels"
+            android:icon="@drawable/ic_channels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/navigation_bookmarks"
+            android:title="@string/title_bookmarks"
+            android:icon="@drawable/ic_heart_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foregroundTint="@color/white"/>
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/navigation_search"
+            android:title="@string/title_search"
+            android:icon="@drawable/ic_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </android.support.design.widget.TabLayout>
+
+
+</android.support.constraint.ConstraintLayout>

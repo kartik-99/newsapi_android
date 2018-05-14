@@ -1,9 +1,13 @@
 package com.example.kartik.bulletin
 
 import android.os.Bundle
+import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
+import com.example.kartik.bulletin.Bookmarks.BookmarkFragment
 import com.example.kartik.bulletin.Channels.ChannelsFragment
+import com.example.kartik.bulletin.Feed.FeedFragment
 import com.example.kartik.bulletin.Search.SearchFragment
 import com.ncapdevi.fragnav.FragNavController
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,17 +30,23 @@ class MainActivity : AppCompatActivity(), FragNavController.TransactionListener,
         var builder = FragNavController.newBuilder(savedInstanceState, supportFragmentManager, R.id.containerView)
         builder.rootFragmentListener(this, 4)
         fragNavController = builder.build()
-        bottomBar.setOnTabSelectListener({ tabId ->
-            when (tabId) {
-                R.id.navigation_feed -> fragNavController?.switchTab(INDEX_FEED)
-                R.id.navigation_channels -> fragNavController?.switchTab(INDEX_CHANNELS)
-                R.id.navigation_bookmarks -> fragNavController?.switchTab(INDEX_BOOKMARKS)
-                R.id.navigation_search -> fragNavController?.switchTab(INDEX_SEARCH)
+        mainTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                Log.d("Tag : ", tab.toString())
+                setFragment(mainTabLayout.selectedTabPosition)
             }
         })
 
 
 
+    }
+
+    private fun setFragment(i: Int) {
+        fragNavController!!.switchTab(i)
     }
 
     override fun onFragmentTransaction(p0: Fragment?, p1: FragNavController.TransactionType?) {

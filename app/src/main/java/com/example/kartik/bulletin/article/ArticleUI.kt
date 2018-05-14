@@ -27,12 +27,12 @@ class ArticleUI <T>:AnkoComponent<T>{
                         height = matchParent
                     }
 
-                    /*progressBar {
+                    progressBar {
                         id = R.id.article_progressbar
                     }.lparams{
                         width = matchParent
                         height = wrapContent
-                    }*/
+                    }
 
                     imageView {
                         id = R.id.article_image

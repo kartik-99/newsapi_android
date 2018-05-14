@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tabs>
-    <tab
+    <!--<tab
         id="@+id/navigation_feed"
         title="@string/title_feed"
         icon="@drawable/ic_feed"/>
@@ -18,5 +18,5 @@
     <tab
         id="@+id/navigation_search"
         title="@string/title_search"
-        icon="@drawable/ic_search"/>
+        icon="@drawable/ic_search"/>-->
 </tabs>

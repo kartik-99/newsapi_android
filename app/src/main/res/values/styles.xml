@@ -18,4 +18,5 @@
     </style>
     <style name="searchTheme" parent="Base.Widget.AppCompat.ActionBar"/>
 
+    <style name="MySearchViewStyle" parent="Widget.AppCompat.Light.SearchView"/>
 </resources>
