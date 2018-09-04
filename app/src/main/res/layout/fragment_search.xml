@@ -16,8 +16,7 @@
     <android.widget.Toolbar
         android:id="@+id/search_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Theme.Design.Light">
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.SearchView
             android:layout_width="match_parent"

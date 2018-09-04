@@ -1,5 +1,8 @@
 package com.example.kartik.bulletin.Search
 
+import android.app.ProgressDialog
+import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -17,6 +20,10 @@ import io.reactivex.schedulers.Schedulers
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.find
 import org.jetbrains.anko.support.v4.ctx
+import org.jetbrains.anko.textView
+import android.widget.TextView
+
+
 
 class SearchFragment : Fragment() {
 
@@ -24,6 +31,7 @@ class SearchFragment : Fragment() {
     var searchDisposable:Disposable? = null
     var searchData:Model.ArticleData? = null
     var newsApiService = NewsApiService.create()
+    lateinit var progressDialog : ProgressDialog
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -32,6 +40,7 @@ class SearchFragment : Fragment() {
         val searchView = view.rootView.find<SearchView>(R.id.searchview)
         searchView.isIconified = false
         searchView.queryHint = "Search here"
+        searchView.textView().setTextColor(Color.WHITE)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
 
             override fun onQueryTextChange(newText: String): Boolean {
@@ -48,22 +57,28 @@ class SearchFragment : Fragment() {
 
         searchView.performClick()
         searchView.requestFocus()
+        searchView.textView().setTextColor(Color.WHITE)
+
+        progressDialog = ProgressDialog(activity)
+        progressDialog.setMessage("Loading....")
 
         resultsRV = view.rootView.find(R.id.search_results_rv)
         return view
     }
 
     private fun performSearch(query:String) {
+        progressDialog.show()
         val res = resources
         var apiKey = res.getString(R.string.apiKey)
         searchDisposable = newsApiService.getSearchResult(query, apiKey)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe({ data:Model.ArticleData? ->
+                .subscribe{ data:Model.ArticleData? ->
                     searchData = data
                     resultsRV?.adapter = ArticleAdapter(searchData!!.articles, ctx)
                     resultsRV?.layoutManager = LinearLayoutManager(context)
-                })
+                    progressDialog.dismiss()
+                }
     }
 
 
