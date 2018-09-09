@@ -3,7 +3,7 @@ package com.example.kartik.bulletin
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import com.example.kartik.bulletin.Channels.ChannelsFragment
+import com.example.kartik.bulletin.Channels.SourceFragment
 import com.ncapdevi.fragnav.FragNavController
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity(), FragNavController.TransactionListener,
     override fun getRootFragment(index: Int): Fragment {
         when(index){
             INDEX_FEED -> return FeedFragment.newInstance(0)
-            INDEX_CHANNELS  -> return ChannelsFragment.newInstance(0)
+            INDEX_CHANNELS  -> return SourceFragment.newInstance(0)
             INDEX_BOOKMARKS -> return BookmarkFragment.newInstance(0)
             INDEX_SEARCH -> return SearchFragment.newInstance(0)
         }

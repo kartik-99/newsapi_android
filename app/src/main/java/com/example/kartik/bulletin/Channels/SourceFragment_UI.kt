@@ -6,7 +6,7 @@ import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 import org.jetbrains.anko.support.v4.swipeRefreshLayout
 
-class ChannelsFragment_UI<T> : AnkoComponent<T>{
+class SourceFragment_UI<T> : AnkoComponent<T>{
     override fun createView(ui: AnkoContext<T>) = with(ui){
         relativeLayout {
             lparams{

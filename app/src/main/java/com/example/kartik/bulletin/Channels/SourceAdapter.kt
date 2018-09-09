@@ -1,6 +1,8 @@
 package com.example.kartik.bulletin.Channels
 
+import android.arch.paging.PagedListAdapter
 import android.content.Context
+import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
@@ -14,16 +16,22 @@ import java.util.*
 
 class SourceAdapter(val sources : ArrayList<Model.Source>) : RecyclerView.Adapter<SourceAdapter.SourceViewHolder>(){
 
+    var storedSources = sources
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SourceViewHolder {
         var view = SourceCard_UI<SourceAdapter>().createView(AnkoContext.create(parent.context, this))
         return SourceViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: SourceViewHolder, position: Int) {
-        holder.updateUI(sources[position])
+        holder.updateUI(this.storedSources[position])
     }
 
-    override fun getItemCount(): Int { return sources.size}
+    override fun getItemCount(): Int { return this.storedSources.size}
+
+    fun updateSources(sources : List<Model.Source>){
+        this.storedSources = sources as ArrayList<Model.Source>
+    }
 
 
     class SourceViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
@@ -54,8 +62,6 @@ class SourceAdapter(val sources : ArrayList<Model.Source>) : RecyclerView.Adapte
 
 
             }
-
-
         }
     }
 

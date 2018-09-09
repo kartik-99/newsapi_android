@@ -1,12 +1,13 @@
 package com.example.kartik.bulletin.architecture
 
 import android.content.Context
+import com.example.kartik.bulletin.data.BulletinDb
 import com.example.kartik.bulletin.data.daos.SourcesDao
 
 
 object Injection{
     fun provideSourcesData(context : Context): SourcesDao{
-        val database = AppDatabase.getInstance(context)
+        val database = BulletinDb.get(context)
         return database.sourcesDao()
     }
 

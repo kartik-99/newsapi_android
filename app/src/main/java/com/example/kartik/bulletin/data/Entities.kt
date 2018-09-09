@@ -1,9 +1,10 @@
-package com.example.kartik.bulletin.data.entities
+package com.example.kartik.bulletin.data
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
-@Entity
+const val sourceTableName = "sources"
+@Entity(tableName = sourceTableName)
 public class Sources(
         @PrimaryKey
         val id:String,
@@ -12,5 +13,6 @@ public class Sources(
         val url:String,
         val category:String,
         val language:String,
-        val country:String
+        val country:String,
+        val favourite:Int
 )
