@@ -15,6 +15,7 @@ import com.example.kartik.bulletin.BaseFragment
 import com.example.kartik.bulletin.api.Model
 import com.example.kartik.bulletin.R
 import com.example.kartik.bulletin.data.BulletinDb
+import com.example.kartik.bulletin.data.entitity.Source
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.find
 import org.jetbrains.anko.support.v4.ctx
@@ -40,7 +41,7 @@ class SourceFragment : Fragment() {
         recyclerView!!.adapter = adapter
 
         viewModel.getSources().observe(this, Observer {
-            sources -> adapter.updateSources(sources as ArrayList<Model.Source>)
+            sources -> adapter.updateSources(sources as ArrayList<Source>)
         })
 
         val swipeLayout : SwipeRefreshLayout = view.rootView.find(R.id.swipe_layout)

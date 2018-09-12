@@ -2,7 +2,7 @@ package com.example.kartik.bulletin.architecture
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import com.example.kartik.bulletin.data.daos.SourcesDao
+import com.example.kartik.bulletin.data.dao.SourcesDao
 
 class ViewModelFactory(private val dataSource: SourcesDao): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

@@ -5,11 +5,11 @@ import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
-import com.example.kartik.bulletin.api.Model
-import com.example.kartik.bulletin.data.daos.SourcesDao
+import com.example.kartik.bulletin.data.dao.SourcesDao
+import com.example.kartik.bulletin.data.entitity.Source
 import com.example.kartik.bulletin.ioThread
 
-@Database(entities = arrayOf(Model.Source::class), version = 1)
+@Database(entities = arrayOf(Source::class), version = 2)
 abstract class BulletinDb : RoomDatabase() {
     abstract fun sourcesDao() : SourcesDao
 
@@ -30,7 +30,8 @@ abstract class BulletinDb : RoomDatabase() {
         }
         fun fillInDb(context: Context){
             ioThread {
-                get(context).sourcesDao().insertSingle(Model.Source("00", "", "", "", "", "", ""))
+                get(context).sourcesDao().insertSingle(Source("00", "", "", "", "", "", "", 0))
+                get(context).sourcesDao().deleteAll()
             }
         }
     }

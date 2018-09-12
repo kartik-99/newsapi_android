@@ -10,11 +10,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.kartik.bulletin.api.Model
 import com.example.kartik.bulletin.R
+import com.example.kartik.bulletin.data.entitity.Source
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.find
 import java.util.*
 
-class SourceAdapter(val sources : ArrayList<Model.Source>) : RecyclerView.Adapter<SourceAdapter.SourceViewHolder>(){
+class SourceAdapter(val sources : ArrayList<Source>) : RecyclerView.Adapter<SourceAdapter.SourceViewHolder>(){
 
     var storedSources = sources
 
@@ -29,8 +30,8 @@ class SourceAdapter(val sources : ArrayList<Model.Source>) : RecyclerView.Adapte
 
     override fun getItemCount(): Int { return this.storedSources.size}
 
-    fun updateSources(sources : List<Model.Source>){
-        this.storedSources = sources as ArrayList<Model.Source>
+    fun updateSources(sources : List<Source>){
+        this.storedSources = sources as ArrayList<Source>
     }
 
 
@@ -40,7 +41,7 @@ class SourceAdapter(val sources : ArrayList<Model.Source>) : RecyclerView.Adapte
         var language: TextView = itemView!!.find(R.id.sourcecard_lang)
         var categoryColor: ImageView = itemView!!.find(R.id.sourcecard_category_imageview)
 
-        fun updateUI(source : Model.Source){
+        fun updateUI(source : Source){
             title.text = source.name
             description.text = source.description
             language.text = source.language

@@ -9,6 +9,7 @@ import com.example.kartik.bulletin.R
 import com.example.kartik.bulletin.api.Model
 import com.example.kartik.bulletin.api.NewsApiService
 import com.example.kartik.bulletin.data.BulletinDb
+import com.example.kartik.bulletin.data.entitity.Source
 import com.example.kartik.bulletin.ioThread
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -16,20 +17,20 @@ import io.reactivex.schedulers.Schedulers
 
 class SourceViewModel(application: Application):AndroidViewModel(application) {
 
-    var sourceList : LiveData<List<Model.Source>>
+    var sourceList : LiveData<List<Source>>
     var db : BulletinDb
     var apiDisposable: Disposable?= null
     private var newsApiService = NewsApiService.create()
 
     init {
         db = BulletinDb.get(this.getApplication())
-        sourceList = db.sourcesDao().getAllSources()
+        sourceList = db.sourcesDao(). getAllSources()
         var test = sourceList.value
         if(test?.size==1 || test==null)
             updateSourcesTable()
     }
 
-    fun getSources():LiveData<List<Model.Source>> {return sourceList}
+    fun getSources():LiveData<List<Source>> {return sourceList}
 
     fun updateSourcesTable() {
 
@@ -38,7 +39,9 @@ class SourceViewModel(application: Application):AndroidViewModel(application) {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe{ data: Model.SourceData? ->
-                    db.sourcesDao().addAllSources(data!!.sources)
+                    ioThread {
+                        db.sourcesDao().addAllSources(data!!.sources)
+                    }
                 }
     }
 }
